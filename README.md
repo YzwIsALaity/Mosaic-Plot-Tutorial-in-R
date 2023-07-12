@@ -1,5 +1,5 @@
 ---
-title:  "Map in R with ggplot2"
+title:  "Mosaic Plot in R with ggplot2"
 mathjax: true
 layout: post
 categories: media
@@ -104,6 +104,34 @@ After making a mosaic plot for two categorical variables, in the next section, w
 
 ## (2). Income level, insurance type, and survival status
 To incorporate the categorical variable for survival status, we can utilize the `facet_grid()` function to create a grid for multiple levels in the `Status` variable. The basic settings for this plot are similar to the previous examples. However, in this case, we will introduce an additional function, `facet_grid( ~ Status)`, to facilitate the creation of the grid. Additionally, we can modify the space between two boxes by setting `offset = 0.02`.
+
+```{r}
+# Factor for Status variable
+Dt$Status <- factor(Dt$Status, levels = c('Death', 'Alive'))
+
+# Version 2
+p2 <-
+ggplot(data = Dt) +
+  geom_mosaic(aes(x = product(Income.Level,      # y-axis: Income level
+                              Facility.Type),    # x-axis: Facility type
+                  fill = Income.Level),          # Color of "box" specified by income level
+              offset = 0.02) +                   # More space between boxes
+  facet_grid( ~ Status) +                        # Facet by survival status
+  xlab('Facility Type')  + 
+  guides(fill = guide_legend(title = "Neighborhood \n Income Level")) +  # Modify title of legend
+  scale_fill_tableau() +                        # Use better color palette
+  theme_mosaic() +                              # Specific theme for mosaic plot
+  theme(axis.ticks.x = element_blank(),         # Remove ticks in x and y axes               
+        axis.ticks.y = element_blank(),
+        axis.title.x = element_text(color = 'black', face = 'bold'), 
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(color = 'black', angle = 45, hjust = 1), 
+        axis.text.y = element_blank(),
+        legend.title = element_text(color = 'black', face = 'bold'), 
+        strip.text = element_text(size = 10, color = 'black', face = 'bold'),
+        strip.background = element_blank())
+p2
+```
 
 ![](https://github.com/YzwIsALaity/Mosaic-Plot-Tutorial-in-R/blob/878b2de35900792dc25bcec9dcdaa6ac2fc3dada/Plot%202.jpeg)
 
