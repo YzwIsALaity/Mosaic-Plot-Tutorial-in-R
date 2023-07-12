@@ -6,7 +6,7 @@ categories: media
 ---
 
 
-![Cover]()
+![Cover](https://github.com/YzwIsALaity/Mosaic-Plot-Tutorial-in-R/blob/c3eba37816e065751c450418dbbd409c2aedf0e6/Plot%204.tiff)
 
 
 In this tutorial, we will introduce the mosaic plot using `ggplot2` and the extension package `ggmosaic.` The __mosaic plot is a widely used visualization technique for displaying two or more categorical variables__ in a dataset. It is typically presented as a stacked percentage bar plot. In the case of a single categorical variable, it can be considered as a stacked bar plot representing counts or percentages. To demonstrate the capabilities of ggmosaic, we will utilize the [__National Cancer Database (NCDB)__](https://www.facs.org/quality-programs/cancer-programs/national-cancer-database/), which is a publicly available data resource.
@@ -24,7 +24,7 @@ The NCDB is a large database, but for visualization purposes, we only require a 
 
 - `Status`: it is a categorical variable that indicates the __survival status of each patient at the last follow-up time [2 levels: Death, Alive]__ (string).
 
-![Dataset]()
+![](https://github.com/YzwIsALaity/Mosaic-Plot-Tutorial-in-R/blob/c3eba37816e065751c450418dbbd409c2aedf0e6/Dataset.png)
 
 A mosaic plot is an ideal option for understanding the interactive relationship among these four categorical variables. In the next section, we will demonstrate the relationships among these variables.
 
@@ -94,7 +94,7 @@ ggplot(data = Dt) +
 grid.arrange(p1.1, p1.2, nrow = 1)
 ```
 
-![Plot 1]()
+![](https://github.com/YzwIsALaity/Mosaic-Plot-Tutorial-in-R/blob/c3eba37816e065751c450418dbbd409c2aedf0e6/Plot%201.tiff)
 
 In this figure, we can find that __each level in the `Income.Level` variable will be filled by a color__. One of the advantages of a mosaic plot is that it allows for the comparison between two categorical variables in both horizontal and vertical orientations, using a percentage scale. 
 
@@ -105,11 +105,11 @@ After making a mosaic plot for two categorical variables, in the next section, w
 ## (2). Income level, insurance type, and survival status
 To incorporate the categorical variable for survival status, we can utilize the `facet_grid()` function to create a grid for multiple levels in the `Status` variable. The basic settings for this plot are similar to the previous examples. However, in this case, we will introduce an additional function, `facet_grid( ~ Status)`, to facilitate the creation of the grid. Additionally, we can modify the space between two boxes by setting `offset = 0.02`.
 
-![Plot 2]()
+![](https://github.com/YzwIsALaity/Mosaic-Plot-Tutorial-in-R/blob/c3eba37816e065751c450418dbbd409c2aedf0e6/Plot%202.tiff)
 
 After stratifying the mosaic plot by the survival status, we observed that there wasn't an obvious difference in the distribution of neighborhood income level and facility type based on survival status. Consequently, we can combine the facet version with the mosaic plot, considering all survival statuses together. This will allow us to visualize the relationships between multiple categorical variables in a comprehensive manner.
 
-![Plot 3]()
+![](https://github.com/YzwIsALaity/Mosaic-Plot-Tutorial-in-R/blob/c3eba37816e065751c450418dbbd409c2aedf0e6/Plot%203.tiff)
 
 Here we go!
 
@@ -155,7 +155,7 @@ ggplot(data = Dt) +
 p3
 ```
 
-![Plot 4]()
+![](https://github.com/YzwIsALaity/Mosaic-Plot-Tutorial-in-R/blob/c3eba37816e065751c450418dbbd409c2aedf0e6/Plot%204.tiff)
 
 Here we go!
 
