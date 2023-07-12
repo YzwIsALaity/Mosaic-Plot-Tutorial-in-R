@@ -141,7 +141,7 @@ After stratifying the mosaic plot by the survival status, we observed that there
 
 Here we go!
 
-In addition to using `facet_grid()` to stratify a mosaic plot, there is an alternative embedded method using the `conds` argument within `aes()` in `geom_mosaic()`. __However, this approach may result in unattractive labels on the x-axis_. To address this, we can manually modify the labels using the `annotate()` function. This requires specifying the numerical location in (x, y) coordinates to annotate the text and replace the initial labels on the x-axis__. Therefore, we will introduce two implementations that we need to use here:
+In addition to using `facet_grid()` to stratify a mosaic plot, there is an alternative embedded method using the `conds` argument within `aes()` in `geom_mosaic()`. __However, this approach may result in unattractive labels on the x-axis. To address this, we can manually modify the labels using the `annotate()` function. This requires specifying the numerical location in (x, y) coordinates to annotate the text and replace the initial labels on the x-axis__. Therefore, we will introduce two implementations that we need to use here:
 
 - `conds`: this argument, `conds`, is used within `aes()` and requires passing a variable through `product()`. For instance, if we want to stratify the plot by `Status`, we need to set `conds = product(Status)`. This allows us to specify the variable for stratification and create separate panels for each level of that variable within the mosaic plot
 
